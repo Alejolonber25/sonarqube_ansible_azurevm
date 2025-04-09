@@ -1,0 +1,10 @@
+- name: Copy docker-compose.yml
+  copy:
+    src: files/docker-compose.yml
+    dest: /home/{{ ansible_user }}/docker-compose.yml
+
+- name: launch Docker Compose services
+  command: docker compose up -d
+  args:
+    chdir: /home/{{ ansible_user }}
+
